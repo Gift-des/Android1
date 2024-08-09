@@ -63,7 +63,11 @@ fun IntentScreen(navController: NavController){
         var selected by remember { mutableIntStateOf(0) }
         Scaffold(
             bottomBar = {
-                NavigationBar {
+                NavigationBar (
+                    containerColor = Color.Gray,
+                    contentColor = Color.White
+
+                ){
                     bottomNavItems.forEachIndexed { index, bottomNavItem ->
                         NavigationBarItem(
                             selected = index == selected,
