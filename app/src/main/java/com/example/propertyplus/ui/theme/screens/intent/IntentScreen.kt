@@ -10,9 +10,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Face
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Star
@@ -21,6 +23,8 @@ import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
@@ -112,7 +116,7 @@ fun IntentScreen(navController: NavController){
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(top = 60.dp)
+                        .padding(top = 80.dp, start = 20.dp)
 
                 ){
 
@@ -127,6 +131,10 @@ fun IntentScreen(navController: NavController){
                                 Image(painter = painterResource(id = R.drawable.home4) , contentDescription = "home",
                                     modifier = Modifier.fillMaxSize(),
                                     contentScale = ContentScale.Crop)
+                                Icon(imageVector = Icons.Default.Favorite, contentDescription ="Favourite",
+                                    modifier = Modifier
+                                        .align(Alignment.TopStart).padding(10.dp),
+                                    tint = Color.Red)
                             }
 
                         }
@@ -142,7 +150,14 @@ fun IntentScreen(navController: NavController){
                                 Icon(imageVector = Icons.Default.Star, contentDescription ="Star", tint = Color.Blue, modifier = Modifier.size(30.dp))
 
                             }
-                            Text(text = "")
+                            Text(text = "14,400 Reviews")
+                            Button(onClick = { /*TODO*/ },
+                                colors = ButtonDefaults.buttonColors(Color.Black),
+                                shape = RoundedCornerShape(10.dp)
+                            ) {
+                                Text(text = "Call")
+
+                            }
                             
                         }
 
