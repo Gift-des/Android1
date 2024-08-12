@@ -9,10 +9,16 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.outlined.Face
 import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.Person
+import androidx.compose.material.icons.outlined.PlayArrow
+import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -140,19 +146,19 @@ val bottomNavItems = listOf(
 
 
     BottomNavItem(
-        title = "Login",
-        route="login",
-        selectedIcon=Icons.Filled.Person,
-        unselectedIcon=Icons.Outlined.Person,
+        title = "Details",
+        route="details",
+        selectedIcon=Icons.Filled.Info,
+        unselectedIcon=Icons.Outlined.Info,
         hasNews = true,
         badges=5
     ),
 
     BottomNavItem(
-        title = "Signup",
-        route="signup",
-        selectedIcon=Icons.Filled.Face,
-        unselectedIcon=Icons.Outlined.Face,
+        title = "Property",
+        route="property",
+        selectedIcon=Icons.Filled.PlayArrow,
+        unselectedIcon=Icons.Outlined.PlayArrow,
         hasNews = true,
         badges=1
     ),

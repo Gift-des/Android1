@@ -20,11 +20,17 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.Face
 import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.Person
+import androidx.compose.material.icons.outlined.PlayArrow
+import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Button
@@ -162,7 +168,10 @@ fun IntentScreen(navController: NavController){
 
                             }
                             Text(text = "14,400 Reviews")
-                            Button(onClick = { /*TODO*/ },
+                            val mContext = LocalContext.current
+                            Button(onClick = { val callIntent=Intent(Intent.ACTION_DIAL)
+                                callIntent.data="tel:0720245837".toUri()
+                                mContext.startActivity(callIntent)},
                                 colors = ButtonDefaults.buttonColors(Color.Black),
                                 shape = RoundedCornerShape(10.dp)
                             ) {
@@ -243,12 +252,10 @@ fun IntentScreen(navController: NavController){
 
                     }
                     Spacer(modifier = Modifier.height(10.dp))
-                    Button(onClick = {  val shareIntent = Intent(Intent.ACTION_SEND)
-                        shareIntent.type = "text/plain"
-                        shareIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("akinyiglory2@gmail.com"))
-                        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "subject")
-                        shareIntent.putExtra(Intent.EXTRA_TEXT, "Hello, this is the email body")
-                        mContext.startActivity(shareIntent) },
+                    Button(onClick = {  val shareIntent=Intent(Intent.ACTION_SEND)
+                        shareIntent.type="text/plain"
+                        shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this is a cool content")
+                        mContext.startActivity(Intent.createChooser(shareIntent, "Share")) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(50.dp)
@@ -261,7 +268,7 @@ fun IntentScreen(navController: NavController){
 
                     }
                     Spacer(modifier = Modifier.height(10.dp))
-                    Button(onClick = {    val cameraIntent=Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                    Button(onClick = {val cameraIntent=Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                         if (cameraIntent.resolveActivity(mContext.packageManager)!=null){
                             mContext.startActivity(cameraIntent)
                         }else{
@@ -305,19 +312,19 @@ val bottomNavItems = listOf(
 
 
     BottomNavItem(
-        title = "Login",
-        route="login",
-        selectedIcon=Icons.Filled.Person,
-        unselectedIcon=Icons.Outlined.Person,
+        title = "Details",
+        route="details",
+        selectedIcon=Icons.Filled.Info,
+        unselectedIcon=Icons.Outlined.Info,
         hasNews = true,
         badges=5
     ),
 
     BottomNavItem(
-        title = "Signup",
-        route="signup",
-        selectedIcon=Icons.Filled.Face,
-        unselectedIcon=Icons.Outlined.Face,
+        title = "Property",
+        route="property",
+        selectedIcon=Icons.Filled.PlayArrow,
+        unselectedIcon=Icons.Outlined.PlayArrow,
         hasNews = true,
         badges=1
     ),
