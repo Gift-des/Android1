@@ -32,8 +32,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.propertyplus.R
+import com.example.propertyplus.navigation.ADD_PRODUCTS_URL
 import com.example.propertyplus.navigation.ROUT_HOME
 import com.example.propertyplus.navigation.ROUT_PROPERTY
+import com.example.propertyplus.navigation.VIEW_PRODUCTS_URL
 import com.example.propertyplus.ui.theme.card
 import com.example.propertyplus.ui.theme.card1
 import com.example.propertyplus.ui.theme.midnight
@@ -173,7 +175,8 @@ fun DashboardScreen(navController: NavController){
                     //card2
                     Card(modifier = Modifier
                         .width(160.dp)
-                        .height(180.dp),
+                        .height(180.dp)
+                        .clickable { navController.navigate(ADD_PRODUCTS_URL) },
                         elevation = CardDefaults.cardElevation(30.dp)) {
                         Column {
                             Spacer(modifier = Modifier.height(15.dp))
@@ -184,7 +187,7 @@ fun DashboardScreen(navController: NavController){
                             }
                             Spacer(modifier = Modifier.height(15.dp))
                             Text(
-                                text = "Home",
+                                text = "Add Product",
                                 fontSize = 18.sp,
                                 modifier = Modifier.fillMaxWidth(),
                                 textAlign = TextAlign.Center)
@@ -194,7 +197,8 @@ fun DashboardScreen(navController: NavController){
                     //card3
                     Card(modifier = Modifier
                         .width(160.dp)
-                        .height(180.dp),
+                        .height(180.dp)
+                        .clickable { navController.navigate(VIEW_PRODUCTS_URL) },
                         elevation = CardDefaults.cardElevation(30.dp)) {
                         Column {
                             Spacer(modifier = Modifier.height(15.dp))
@@ -205,7 +209,7 @@ fun DashboardScreen(navController: NavController){
                             }
                             Spacer(modifier = Modifier.height(15.dp))
                             Text(
-                                text = "Home",
+                                text = "View Products",
                                 fontSize = 18.sp,
                                 modifier = Modifier.fillMaxWidth(),
                                 textAlign = TextAlign.Center)

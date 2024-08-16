@@ -65,6 +65,8 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database.ktx)
+    implementation(libs.firebase.storage)
+    implementation(libs.firebase.database)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -73,4 +75,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation("com.airbnb.android:lottie-compose:4.2.0")
+    implementation("io.coil-kt:coil-compose:2.0.0-rc01")
+
 }
