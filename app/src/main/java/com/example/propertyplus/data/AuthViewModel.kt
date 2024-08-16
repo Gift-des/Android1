@@ -5,6 +5,7 @@ import android.content.Context
 import android.widget.Toast
 import androidx.navigation.NavController
 import com.example.propertyplus.models.User
+import com.example.propertyplus.navigation.ROUT_DASHBOARD
 import com.example.propertyplus.navigation.ROUT_HOME
 import com.example.propertyplus.navigation.ROUT_LOGIN
 import com.example.propertyplus.navigation.ROUT_SIGNUP
@@ -22,10 +23,10 @@ class AuthViewModel(var navController: NavController, var context: Context){
         progress.setMessage("Please wait...")
     }
     fun signup(name:String, email:String, password:String,confpassword:String){
-        progress.show()
+
 
         if (email.isBlank() || password.isBlank() ||confpassword.isBlank()){
-            progress.dismiss()
+
             Toast.makeText(context,"Please email and password cannot be blank", Toast.LENGTH_LONG).show()
         }else if (password != confpassword){
             Toast.makeText(context,"Password do not match", Toast.LENGTH_LONG).show()
@@ -65,7 +66,7 @@ class AuthViewModel(var navController: NavController, var context: Context){
                 progress.dismiss()
                 if (it.isSuccessful){
                     Toast.makeText(this.context, "Success", Toast.LENGTH_SHORT).show()
-                    navController.navigate(ROUT_HOME)
+                    navController.navigate(ROUT_DASHBOARD)
                 }else{
                     Toast.makeText(this.context, "Error", Toast.LENGTH_SHORT).show()
                 }
